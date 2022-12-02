@@ -2,26 +2,11 @@ package main
 
 import (
 	"fmt"
-	"io"
-	"os"
+	"github.com/patrickjmcd/advent-of-code-2022/helpers"
 	"sort"
 	"strconv"
 	"strings"
 )
-
-func openAndReadFile(filename string) ([]byte, error) {
-	file, err := os.Open(filename)
-	if err != nil {
-		return nil, err
-	}
-	defer file.Close()
-
-	data, err := io.ReadAll(file)
-	if err != nil {
-		return nil, err
-	}
-	return data, nil
-}
 
 type elf struct {
 	id       int
@@ -35,7 +20,7 @@ func (a byCalories) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
 func (a byCalories) Less(i, j int) bool { return a[i].calories < a[j].calories }
 
 func topElf() {
-	data, err := openAndReadFile("./input.txt")
+	data, err := helpers.OpenAndReadFile("./input.txt")
 	if err != nil {
 		panic(err)
 	}
@@ -66,7 +51,7 @@ func topElf() {
 }
 
 func top3elves() {
-	data, err := openAndReadFile("./input.txt")
+	data, err := helpers.OpenAndReadFile("./input.txt")
 	if err != nil {
 		panic(err)
 	}
