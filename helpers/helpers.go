@@ -19,3 +19,12 @@ func OpenAndReadFile(filename string) ([]byte, error) {
 	}
 	return data, nil
 }
+
+func StringInSlice(a string, list []string) bool {
+	for _, b := range list {
+		if b == a {
+			return true
+		}
+	}
+	return false
+}
