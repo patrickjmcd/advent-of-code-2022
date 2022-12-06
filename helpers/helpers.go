@@ -28,3 +28,41 @@ func StringInSlice(a string, list []string) bool {
 	}
 	return false
 }
+
+func StringSliceEqual(a, b []string) bool {
+	if len(a) != len(b) {
+		return false
+	}
+	for i := range a {
+		if a[i] != b[i] {
+			return false
+		}
+	}
+	return true
+}
+
+func StringSliceAllSameChar(a []string) bool {
+	if len(a) == 0 {
+		return false
+	}
+	for i := range a {
+		if a[i] != a[0] {
+			return false
+		}
+	}
+	return true
+}
+
+func StringSliceAllUnique(a []string) bool {
+	if len(a) == 0 {
+		return false
+	}
+	seen := make(map[string]bool)
+	for _, v := range a {
+		if seen[v] {
+			return false
+		}
+		seen[v] = true
+	}
+	return true
+}
